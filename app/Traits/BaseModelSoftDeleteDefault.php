@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Database\Schema\Blueprint;
 
-trait BaseModelSoftDelete
+trait BaseModelSoftDeleteDefault
 {
     public function base(Blueprint $table): void
     {
