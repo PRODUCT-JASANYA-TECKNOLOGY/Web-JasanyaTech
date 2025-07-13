@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory, Notifiable, AuditedBySoftDelete, SoftDeletes;
-    protected $table = 'project';
+    protected $table = 'product';
     protected $guarded = ['id'];
 
     protected $casts = [
