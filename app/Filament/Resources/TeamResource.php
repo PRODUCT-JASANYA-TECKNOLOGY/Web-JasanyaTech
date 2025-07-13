@@ -12,7 +12,10 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Repeater;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\TeamResource\Pages;
@@ -95,26 +98,36 @@ class TeamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('benner_certificate')
+                ImageColumn::make('image'),
+                TextColumn::make('roles.name')
+                    ->label('Role')
+                    ->badge()
+                    ->separator(','),
+                TextColumn::make('social_media')
+                    ->label('Social Media'),
+                ImageColumn::make('benner_certificate')
+                    ->label('Benner Certificate'),
+                TextColumn::make('cv')
+                    ->label('CV')
+                    ->color('info')
+                    ->url(fn ($record) => $record->cv)
+                    ->openUrlInNewTab()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('cv')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('url_portofolio')
-                    ->searchable(),
-                Tables\Columns\IconColumn::make('active')
+                TextColumn::make('url_portofolio')
+                    ->searchable()
+                    ->color('info')
+                    ->url(fn ($record) => $record->url_portofolio)
+                    ->openUrlInNewTab(),
+                IconColumn::make('active')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_by')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('updated_by')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('deleted_by')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('createdBy.name')
+                    ->label('Created By'),
+                TextColumn::make('updatedBy.name')
+                    ->label("Updated by"),
+                TextColumn::make('deletedBy.name')
+                    ->label("Deleted by"),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -132,7 +145,9 @@ class TeamResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
