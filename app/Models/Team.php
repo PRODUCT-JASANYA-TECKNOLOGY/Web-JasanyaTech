@@ -17,4 +17,9 @@ class Team extends Model
     protected $casts = [
         'social_media' => 'array',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_team', 'team_id', 'role_id');
+    }
 }

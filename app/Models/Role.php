@@ -14,7 +14,7 @@ class Role extends Model
     protected $table = 'role';
     protected $guarded = ['id'];
 
-    public function team()
+    public function teams()
     {
         return $this->belongsToMany(Team::class, 'role_team', 'role_id', 'team_id');
     }
