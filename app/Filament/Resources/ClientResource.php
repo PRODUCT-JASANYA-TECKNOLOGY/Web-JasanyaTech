@@ -26,7 +26,7 @@ class ClientResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
 
-    protected static ?string $navigationGroup = 'Web Management';
+    protected static ?string $navigationGroup = 'Client Management';
     
     protected static ?string $navigationLabel = 'Client';
 
