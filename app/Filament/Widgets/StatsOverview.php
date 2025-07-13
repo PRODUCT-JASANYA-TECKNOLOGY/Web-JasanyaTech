@@ -2,13 +2,20 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use App\Models\Client;
+use App\Models\Portofolio;
+use App\Models\Product;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class StatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {
+        $product = Product::count();
+        $portfolio = Portofolio::count();
+        $client = Client::count();
+        
         return [
             Stat::make('Product', '12')
                 ->color('success')
