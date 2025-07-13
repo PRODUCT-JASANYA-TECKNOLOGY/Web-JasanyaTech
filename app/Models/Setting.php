@@ -27,8 +27,6 @@ class Setting extends Model
                 return ['Textarea' => $value];
             case 'RichEditor':
                 return ['RichEditor' => $value];
-            case 'UploadImage':
-                return ['UploadImage' => $value];
             default:
                 return $value;
         }
