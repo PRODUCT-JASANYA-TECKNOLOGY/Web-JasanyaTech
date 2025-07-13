@@ -2,16 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TechnologyResource\Pages;
-use App\Filament\Resources\TechnologyResource\RelationManagers;
-use App\Models\Technology;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Technology;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TechnologyResource\Pages;
+use App\Filament\Resources\TechnologyResource\RelationManagers;
 
 class TechnologyResource extends Resource
 {
@@ -23,24 +27,20 @@ class TechnologyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
-                    ->maxLength(128),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
-                Forms\Components\Textarea::make('desc')
+                    ->maxLength(128)
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('active')
-                    ->required(),
-                Forms\Components\TextInput::make('created_by')
+                FileUpload::make('image')
                     ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
+                    ->image()
+                    ->directory('technology')
+                    ->columnSpanFull(),
+                Textarea::make('desc')
+                    ->label('Description')
+                    ->columnSpanFull(),
+                Toggle::make('active')
+                    ->required(),
             ]);
     }
 
