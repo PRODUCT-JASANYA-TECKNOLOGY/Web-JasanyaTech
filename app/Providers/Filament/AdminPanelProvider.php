@@ -31,6 +31,8 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Blue,
             ])
+            ->brandName('Jasanya Tech')
+            ->favicon(asset('images/2.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -55,4 +57,15 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
+    // protected function getBrandLogo(): ?string
+    // {
+    //     // Tampilkan logo hanya di halaman login
+    //     if (request()->is('admin/login')) {
+    //         return asset('images/jasanyatech.png');
+    //     }
+
+    //     // Selain itu (misal dashboard), tidak pakai logo
+    //     return null;
+    // }
 }
