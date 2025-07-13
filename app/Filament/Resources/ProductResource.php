@@ -29,6 +29,10 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Web Management';
+    
+    protected static ?string $navigationLabel = 'Product';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -108,7 +112,9 @@ class ProductResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
