@@ -2,16 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ClientResource\Pages;
-use App\Filament\Resources\ClientResource\RelationManagers;
-use App\Models\Client;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Client;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ClientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ClientResource\RelationManagers;
 
 class ClientResource extends Resource
 {
@@ -23,24 +27,20 @@ class ClientResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
-                    ->maxLength(128),
-                Forms\Components\TextInput::make('logo')
-                    ->required()
-                    ->maxLength(128),
-                Forms\Components\Textarea::make('desc')
+                    ->maxLength(128)
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('active')
-                    ->required(),
-                Forms\Components\TextInput::make('created_by')
+                FileUpload::make('logo')
                     ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
+                    ->image()
+                    ->directory('client')
+                    ->columnSpanFull(),
+                Textarea::make('desc')
+                    ->label('Description')
+                    ->columnSpanFull(),
+                Toggle::make('active')
+                    ->required(),
             ]);
     }
 

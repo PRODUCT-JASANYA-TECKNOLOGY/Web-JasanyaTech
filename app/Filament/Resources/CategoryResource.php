@@ -41,6 +41,7 @@ class CategoryResource extends Resource
                     ->columnSpanFull()
                     ->maxLength(255),
                 Textarea::make('desc')
+                    ->label('Description')
                     ->columnSpanFull(),
                 Toggle::make('active')
                     ->required(),
