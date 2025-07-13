@@ -2,16 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SettingResource\Pages;
-use App\Filament\Resources\SettingResource\RelationManagers;
-use App\Models\Setting;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Setting;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\SettingResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SettingResource\RelationManagers;
 
 class SettingResource extends Resource
 {
@@ -23,22 +29,36 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('key')
+                TextInput::make('key')
                     ->required()
-                    ->maxLength(128),
-                Forms\Components\Textarea::make('value')
-                    ->required()
+                    ->maxLength(128)
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('active')
+                Select::make('type')
+                    ->label('Tipe Input')
+                    ->options([
+                        'Textarea' => "Text Area",
+                        'RichEditor' => 'Editor Teks',
+                        'UploadImage' => 'Unggah Gambar',
+                    ])
+                    ->default('RichEditor')
+                    ->afterStateUpdated(function (callable $set) {
+                        // $set('value', null);
+                    })
+                    ->reactive()
+                    ->columnSpanFull(),
+                RichEditor::make('value.RichEditor')
+                    ->label('Value (Rich Editor)')
+                    ->columnSpanFull()
+                    ->hidden(fn ($get) => $get('type') !== 'RichEditor'),
+
+                Textarea::make('value.Textarea')
+                    ->label('Value (Text Area)')
+                    ->autosize()
+                    ->columnSpanFull()
+                    ->hidden(fn ($get) => $get('type') !== 'Textarea'),
+
+                Toggle::make('active')
                     ->required(),
-                Forms\Components\TextInput::make('created_by')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
             ]);
     }
 
