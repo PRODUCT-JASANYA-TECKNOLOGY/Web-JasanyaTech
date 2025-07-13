@@ -2,16 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TeamResource\Pages;
-use App\Filament\Resources\TeamResource\RelationManagers;
-use App\Models\Team;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\Role;
+use App\Models\Team;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\TeamResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TeamResource\RelationManagers;
 
 class TeamResource extends Resource
 {
@@ -23,32 +29,65 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
-                    ->maxLength(128),
-                Forms\Components\FileUpload::make('image')
+                    ->maxLength(128)
+                    ->columnSpanFull(),
+                FileUpload::make('image')
                     ->image()
+                    ->directory('team')
+                    ->columnSpanFull()
                     ->required(),
-                Forms\Components\TextInput::make('social_media')
+                Select::make('roles')
+                    ->multiple()
+                    ->relationship('roles', 'name')
+                    ->label('Role')
+                    ->searchable()
+                    ->options(Role::limit(5)->pluck('name', 'id'))
+                    ->getSearchResultsUsing(function (string $search) {
+                        return Role::where('name', 'like', "%{$search}%")
+                            ->limit(5)
+                            ->pluck('name', 'id')
+                            ->toArray();
+                    })
+                    ->getOptionLabelUsing(function ($value) {
+                        return Role::find($value)?->name;
+                    })
+                    ->columnSpanFull()
                     ->required(),
-                Forms\Components\TextInput::make('benner_certificate')
-                    ->maxLength(128),
-                Forms\Components\TextInput::make('cv')
+                Repeater::make('social_media')
+                    ->schema([
+                        TextInput::make('platform')
+                            ->label('Platform')
+                            ->placeholder('facebook, instagram, etc')
+                            ->required(),
+                        TextInput::make('url')
+                            ->label('URL')
+                            ->placeholder('https://...')
+                            ->required()
+                            ->url(),
+                    ])
+                    ->default([])
+                    ->label('Social Media Links')
+                    ->addActionLabel('Tambah Link')
+                    ->reorderable()
+                    ->columnSpanFull()
+                    ->required(),
+                FileUpload::make('benner_certificate')
+                    ->image()
+                    ->directory('benner_certificate')
+                    ->columnSpanFull()
+                    ->required(),
+                TextInput::make('cv')
                     ->required()
+                    ->label('CV')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('url_portofolio')
+                TextInput::make('url_portofolio')
                     ->required()
+                    ->label('URL Portofolio')
                     ->maxLength(128),
-                Forms\Components\Toggle::make('active')
+                Toggle::make('active')
                     ->required(),
-                Forms\Components\TextInput::make('created_by')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
             ]);
     }
 
