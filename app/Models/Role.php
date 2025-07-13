@@ -13,4 +13,9 @@ class Role extends Model
     use HasFactory, Notifiable, AuditedBySoftDelete, SoftDeletes;
     protected $table = 'role';
     protected $guarded = ['id'];
+
+    public function team()
+    {
+        return $this->belongsToMany(Team::class, 'role_team', 'role_id', 'team_id');
+    }
 }
