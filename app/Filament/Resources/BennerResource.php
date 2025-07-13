@@ -23,7 +23,11 @@ class BennerResource extends Resource
 {
     protected static ?string $model = Benner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
+
+    protected static ?string $navigationGroup = 'Web Management';
+    
+    protected static ?string $navigationLabel = 'Benner';
 
     public static function form(Form $form): Form
     {
