@@ -2,16 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
-use App\Models\Product;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Product;
+use App\Models\Category;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ProductResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ProductResource\RelationManagers;
 
 class ProductResource extends Resource
 {
@@ -23,35 +30,36 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('thumbnail')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(128),
-                Forms\Components\Textarea::make('desc')
+                Select::make('category_id')
+                    ->required()
+                    ->label('Category')
+                    ->searchable()
+                    ->options(Category::all()->pluck('name', 'id')),
+                FileUpload::make('thumbnail')
+                    ->image()
+                    ->directory('product thumbnail')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('image')
+                RichEditor::make('desc')
+                    ->required()
+                    ->label('Description')
+                    ->columnSpanFull(),
+                FileUpload::make('image')
                     ->image()
-                    ->required(),
-                Forms\Components\TextInput::make('price')
+                    ->multiple()
+                    ->directory('product image')
+                    ->required()
+                    ->columnSpanFull(),
+                TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
-                Forms\Components\Toggle::make('active')
+                    ->prefix('Rp')
+                    ->columnSpanFull(),
+                Toggle::make('active')
                     ->required(),
-                Forms\Components\TextInput::make('created_by')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
             ]);
     }
 
