@@ -15,7 +15,10 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
@@ -91,7 +94,7 @@ class PortofolioResource extends Resource
                     ->image()
                     ->required()
                     ->multiple()
-                    ->directory('portofolio images')
+                    ->directory('portofolio image')
                     ->columnSpanFull(),
                 DatePicker::make('start_project')
                     ->native(false),
@@ -106,30 +109,33 @@ class PortofolioResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('client_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('thumbnail')
+                TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('client.name')
+                    ->label('Client Name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('start_project')
+                TextColumn::make('category.name')
+                    ->label('Client Name')
+                    ->searchable(),
+                TextColumn::make('technology.name')
+                    ->label('Technology Name')
+                    ->searchable(),
+                ImageColumn::make('thumbnail'),
+                ImageColumn::make('image'),
+                TextColumn::make('start_project')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_project')
+                TextColumn::make('end_project')
                     ->date()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('active')
+                IconColumn::make('active')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_by')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('updated_by')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('deleted_by')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('createdBy.name')
+                    ->label('Created By'),
+                TextColumn::make('updatedBy.name')
+                    ->label("Updated by"),
+                TextColumn::make('deletedBy.name')
+                    ->label("Deleted by"),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -147,7 +153,9 @@ class PortofolioResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
