@@ -39,12 +39,25 @@ class ProductResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
-                    ->maxLength(128),
-                Select::make('category_id')
-                    ->required()
+                    ->maxLength(128)
+                    ->columnSpanFull(),
+                Select::make('category')
+                    ->multiple()
+                    ->relationship('category', 'name')
                     ->label('Category')
                     ->searchable()
-                    ->options(Category::all()->pluck('name', 'id')),
+                    ->options(Category::limit(5)->pluck('name', 'id'))
+                    ->getSearchResultsUsing(function (string $search) {
+                        return Category::where('name', 'like', "%{$search}%")
+                            ->limit(5)
+                            ->pluck('name', 'id')
+                            ->toArray();
+                    })
+                    ->getOptionLabelUsing(function ($value) {
+                        return Category::find($value)?->name;
+                    })
+                    ->columnSpanFull()
+                    ->required(),
                 FileUpload::make('thumbnail')
                     ->image()
                     ->directory('product thumbnail')
@@ -82,6 +95,7 @@ class ProductResource extends Resource
                 TextColumn::make('desc')
                     ->label('Description')
                     ->searchable()
+                    ->html()
                     ->limit(50),
                 ImageColumn::make('image'),
                 TextColumn::make('price')
