@@ -2,16 +2,26 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PortofolioResource\Pages;
-use App\Filament\Resources\PortofolioResource\RelationManagers;
-use App\Models\Portofolio;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Client;
+use App\Models\Category;
+use Filament\Forms\Form;
+use App\Models\Portofolio;
+use App\Models\Technology;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PortofolioResource\Pages;
+use App\Filament\Resources\PortofolioResource\RelationManagers;
 
 class PortofolioResource extends Resource
 {
@@ -23,33 +33,72 @@ class PortofolioResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('client_id')
+                Section::make('Client & Technology')
+                    ->description('Prevent abuse by limiting the number of requests per period')
+                    ->icon('heroicon-m-building-office')
+                    ->schema([
+                        Select::make('client_id')
+                            ->required()
+                            ->searchable()
+                            ->columnSpanFull()
+                            ->label('Client Name')
+                            ->options(Client::all()->pluck('name', 'id')),
+                        Select::make('category')
+                            ->multiple()
+                            ->relationship('category', 'name')
+                            ->label('Category')
+                            ->searchable()
+                            ->options(Category::limit(5)->pluck('name', 'id'))
+                            ->getSearchResultsUsing(function (string $search) {
+                                return Category::where('name', 'like', "%{$search}%")
+                                    ->limit(5)
+                                    ->pluck('name', 'id')
+                                    ->toArray();
+                            })
+                            ->getOptionLabelUsing(function ($value) {
+                                return Category::find($value)?->name;
+                            })
+                            ->required(),
+                        Select::make('technology')
+                            ->multiple()
+                            ->relationship('technology', 'name')
+                            ->label('Technology')
+                            ->searchable()
+                            ->options(Technology::limit(5)->pluck('name', 'id'))
+                            ->getSearchResultsUsing(function (string $search) {
+                                return Technology::where('name', 'like', "%{$search}%")
+                                    ->limit(5)
+                                    ->pluck('name', 'id')
+                                    ->toArray();
+                            })
+                            ->getOptionLabelUsing(function ($value) {
+                                return Technology::find($value)?->name;
+                            })
+                            ->required(),
+                    ]),
+                FileUpload::make('thumbnail')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('thumbnail')
+                    ->directory('portofolio thumbnail')
+                    ->columnSpanFull(),
+                TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('title')
-                    ->required()
+                    ->columnSpanFull()
                     ->maxLength(128),
-                Forms\Components\Textarea::make('desc')
+                Textarea::make('desc')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('image')
+                FileUpload::make('image')
                     ->image()
-                    ->required(),
-                Forms\Components\DatePicker::make('start_project'),
-                Forms\Components\DatePicker::make('end_project'),
-                Forms\Components\Toggle::make('active')
-                    ->required(),
-                Forms\Components\TextInput::make('created_by')
                     ->required()
-                    ->numeric()
-                    ->default(1),
-                Forms\Components\TextInput::make('updated_by')
-                    ->numeric(),
-                Forms\Components\TextInput::make('deleted_by')
-                    ->numeric(),
+                    ->multiple()
+                    ->directory('portofolio images')
+                    ->columnSpanFull(),
+                DatePicker::make('start_project')
+                    ->native(false),
+                DatePicker::make('end_project')
+                    ->native(false),
+                Toggle::make('active')
+                    ->required(),
             ]);
     }
 

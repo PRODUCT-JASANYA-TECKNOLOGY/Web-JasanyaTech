@@ -15,7 +15,6 @@ class Portofolio extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'technology' => 'array',
         'image' => 'array'
     ];
 
