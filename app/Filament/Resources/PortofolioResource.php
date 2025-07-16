@@ -30,7 +30,11 @@ class PortofolioResource extends Resource
 {
     protected static ?string $model = Portofolio::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark';
+
+    protected static ?string $navigationGroup = 'Web Management';
+    
+    protected static ?string $navigationLabel = 'Portofolio';
 
     public static function form(Form $form): Form
     {
