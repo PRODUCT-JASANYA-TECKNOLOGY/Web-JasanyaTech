@@ -17,17 +17,17 @@ class StatsOverview extends BaseWidget
         $client = Client::count();
         
         return [
-            Stat::make('Product', '12')
+            Stat::make('Total Produk', '12')
                 ->color('success')
-                ->description('Total Produk')
+                ->description('Produk')
                 ->icon('heroicon-o-calendar')
                 ->chart([7, 2, 10, 3, 15, 4, 17]),
-            Stat::make('Portfolio', '20')
+            Stat::make('Total Portfolio', '20')
                 ->color('warning')
                 ->description('Proyek')
                 ->icon('heroicon-o-document')
                 ->chart([7, 2, 10, 3, 15, 4, 17]),
-            Stat::make('Client', '14')
+            Stat::make('Total Client', '14')
                 ->color('info')
                 ->description('Pelanggan')
                 ->icon('heroicon-o-building-office-2')
