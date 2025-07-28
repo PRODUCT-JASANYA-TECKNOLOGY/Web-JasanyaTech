@@ -7,6 +7,7 @@ const page = usePage();
 defineProps({
     technology: Array,
     category: Array,
+    client: Array,
 });
 
 const appName = computed(() => page.props.appName);
