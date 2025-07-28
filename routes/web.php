@@ -6,6 +6,7 @@ use App\Http\Controllers\TechnologyController;
 use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/contact', [HomeController::class, 'createContact'])->name('contact.store');
 
 Route::get('/test', function () {
     return 'Halo cepat!';

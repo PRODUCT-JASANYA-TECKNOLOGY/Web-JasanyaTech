@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Contact;
 use Inertia\Inertia;
 use App\Models\Technology;
 use Illuminate\Http\Request;
@@ -18,11 +19,27 @@ class HomeController extends Controller
         foreach ($clients as $client) {
             $client->logo_url = asset('storage/' . $client->logo);
         }
+        $contcts = Contact::get();
             
         return Inertia::render('Home', [
             'technology' => $technologies,
             'category' => $categories,
             'client' => $clients,
+            'contact' => $contcts,
         ]);
+    }
+
+    public function createContact(Request $request)
+    {
+        Contact::create(
+            $request->validate([
+                'name' => ['required', 'max:128'],
+                'email' => ['required', 'max:50', 'email'],
+                'need' => ['required', 'max:255'],
+                'massage' => ['required', 'max:255'],
+            ])
+        );
+
+        return to_route('contact.index');
     }
 }
