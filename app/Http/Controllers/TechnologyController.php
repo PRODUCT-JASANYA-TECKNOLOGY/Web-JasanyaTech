@@ -11,7 +11,7 @@ class TechnologyController extends Controller
     public function index()
     {
         $technologies = Technology::all();
-            return Inertia::render('technology/Index', [
+            return Inertia::render('Home', [
         'technology' => $technologies,
         ]);
     }

@@ -28,8 +28,8 @@ class TechnologySeeder extends Seeder
             ['name' => 'Java', 'image' => 'default.png', 'desc' => ''],
             ['name' => 'Springs Boot', 'image' => 'default.png', 'desc' => ''],
             ['name' => 'React', 'image' => 'default.png', 'desc' => ''],
-            ['name' => 'Nuxt.js', 'image' => 'default.png', 'desc' => ''],
-            ['name' => 'Next.js', 'image' => 'default.png', 'desc' => ''],
+            ['name' => 'Nuxt.vue', 'image' => 'default.png', 'desc' => ''],
+            ['name' => 'Next.vue', 'image' => 'default.png', 'desc' => ''],
         ];
 
         DB::table('technology')->insert($technologies);

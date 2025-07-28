@@ -7,7 +7,7 @@ import path from 'path';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/vue/app.js'],
+            input: ['resources/css/app.css', 'resources/vue/app.vue'],
             refresh: true,
         }),
         vue(),

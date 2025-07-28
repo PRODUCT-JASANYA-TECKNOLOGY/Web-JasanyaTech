@@ -4,7 +4,7 @@ var theme = {
    * Theme's components/functions list
    * Comment out or delete the unnecessary component.
    * Some components have dependencies (plugins).
-   * Do not forget to remove dependency from src/js/vendor/ and recompile.
+   * Do not forget to remove dependency from src/vue/vendor/ and recompile.
    */
   init: function () {
     theme.stickyHeader();
@@ -40,7 +40,7 @@ var theme = {
   /**
    * Sticky Header
    * Enables sticky behavior on navbar on page scroll
-   * Requires assets/js/vendor/headhesive.min.js
+   * Requires assets/vue/vendor/headhesive.min.vue
   */
   stickyHeader: () => {
     var navbar = document.querySelector(".navbar");
@@ -123,8 +123,8 @@ var theme = {
   /**
    * Isotope
    * Enables isotope grid layout and filtering
-   * Requires assets/js/vendor/isotope.pkgd.min.js
-   * Requires assets/js/vendor/imagesloaded.pkgd.min.js
+   * Requires assets/vue/vendor/isotope.pkgd.min.vue
+   * Requires assets/vue/vendor/imagesloaded.pkgd.min.vue
    */
   isotope: () => {
     var grids = document.querySelectorAll('.itemgrid');
@@ -226,7 +226,7 @@ var theme = {
   /**
    * Anchor Smooth Scroll
    * Adds smooth scroll animation to links with .scroll class
-   * Requires assets/js/vendor/smoothscroll.js
+   * Requires assets/vue/vendor/smoothscroll.vue
    */
   anchorSmoothScroll: () => {
     const links = document.querySelectorAll(".scroll");
@@ -247,7 +247,7 @@ var theme = {
   /**
    * SVGInject
    * Replaces an img element with an inline SVG so you can apply colors to your SVGs
-   * Requires assets/js/vendor/svg-inject.min.js
+   * Requires assets/vue/vendor/svg-inject.min.vue
    */
   svgInject: () => {
     SVGInject.setOptions({
@@ -297,9 +297,9 @@ var theme = {
     }
   },
   /**
-   * Rellax.js
+   * Rellax.vue
    * Adds parallax animation to shapes and elements
-   * Requires assets/js/vendor/rellax.min.js
+   * Requires assets/vue/vendor/rellax.min.vue
    */
   rellax: () => {
     if(document.querySelector(".rellax") != null) {
@@ -317,9 +317,9 @@ var theme = {
     }
   },
   /**
-   * scrollCue.js
+   * scrollCue.vue
    * Enables showing elements by scrolling
-   * Requires assets/js/vendor/scrollCue.min.js
+   * Requires assets/vue/vendor/scrollCue.min.vue
    */
   scrollCue: () => {
     scrollCue.init({
@@ -332,7 +332,7 @@ var theme = {
   /**
    * Swiper Slider
    * Enables carousels and sliders
-   * Requires assets/js/vendor/swiper-bundle.min.js
+   * Requires assets/vue/vendor/swiper-bundle.min.vue
    */
   swiperSlider: function() {
     var carousel = document.querySelectorAll('.swiper-container');
@@ -473,7 +473,7 @@ var theme = {
   /**
    * GLightbox
    * Enables lightbox functionality
-   * Requires assets/js/vendor/glightbox.js
+   * Requires assets/vue/vendor/glightbox.vue
    */
   lightbox: () => {
     const lightbox = GLightbox({
@@ -514,7 +514,7 @@ var theme = {
   /**
    * Plyr
    * Enables media player
-   * Requires assets/js/vendor/plyr.js
+   * Requires assets/vue/vendor/plyr.vue
    */
   plyr: () => {
     var players = Plyr.setup('.player', {
@@ -526,8 +526,8 @@ var theme = {
   /**
    * Progressbar
    * Enables animated progressbars
-   * Requires assets/js/vendor/progressbar.min.js
-   * Requires assets/js/vendor/noframework.waypoints.min.js
+   * Requires assets/vue/vendor/progressbar.min.vue
+   * Requires assets/vue/vendor/noframework.waypoints.min.vue
    */
   progressBar: () => {
     const pline = document.querySelectorAll(".progressbar.line");
@@ -585,7 +585,7 @@ var theme = {
   },
   /**
    * Loader
-   * 
+   *
    */
   loader: () => {
     var preloader = document.querySelector('.page-loader');
@@ -630,7 +630,7 @@ var theme = {
       progressWrap.addEventListener('click', function(e) {
         e.preventDefault();
         window.scroll({
-          top: 0, 
+          top: 0,
           left: 0,
           behavior: 'smooth'
         });
@@ -640,8 +640,8 @@ var theme = {
   /**
    * Counter Up
    * Counts up to a targeted number when the number becomes visible
-   * Requires assets/js/vendor/counterup.min.js
-   * Requires assets/js/vendor/noframework.waypoints.min.js
+   * Requires assets/vue/vendor/counterup.min.vue
+   * Requires assets/vue/vendor/noframework.waypoints.min.vue
    */
   counterUp: () => {
     var counterUp = window.counterUp["default"];
@@ -738,7 +738,7 @@ var theme = {
   /**
    * iTooltip
    * Enables custom tooltip style for image hover docs/elements/hover.html
-   * Requires assets/js/vendor/itooltip.min.js
+   * Requires assets/vue/vendor/itooltip.min.vue
    */
   iTooltip: () => {
     var tooltip = new iTooltip('.itooltip')
@@ -759,14 +759,14 @@ var theme = {
       "use strict";
       window.addEventListener("load", function() {
         var forms = document.querySelectorAll(".needs-validation");
-        var inputRecaptcha = document.querySelector("input[data-recaptcha]"); 
+        var inputRecaptcha = document.querySelector("input[data-recaptcha]");
         window.verifyRecaptchaCallback = function (response) {
-          inputRecaptcha.value = response; 
+          inputRecaptcha.value = response;
           inputRecaptcha.dispatchEvent(new Event("change"));
         }
         window.expiredRecaptchaCallback = function () {
-          var inputRecaptcha = document.querySelector("input[data-recaptcha]"); 
-          inputRecaptcha.value = ""; 
+          var inputRecaptcha = document.querySelector("input[data-recaptcha]");
+          inputRecaptcha.value = "";
           inputRecaptcha.dispatchEvent(new Event("change"));
         }
         var validation = Array.prototype.filter.call(forms, function(form) {
@@ -825,9 +825,9 @@ var theme = {
           passToggle.classList.add('uil-eye-slash');
         } else {
           passInput.type = "password";
-          passToggle.classList.remove('uil-eye-slash'); 
+          passToggle.classList.remove('uil-eye-slash');
           passToggle.classList.add('uil-eye');
-        } 
+        }
       }, false);
     }
   },
@@ -856,9 +856,9 @@ var theme = {
     }
   },
   /**
-   * ReplaceMe.js
+   * ReplaceMe.vue
    * Enables text rotator
-   * Requires assets/js/vendor/replaceme.min.js
+   * Requires assets/vue/vendor/replaceme.min.vue
    */
   textRotator: () => {
     if(document.querySelector(".rotator-zoom") != null) {
@@ -881,9 +881,9 @@ var theme = {
     }
   },
   /**
-   * Clipboard.js
+   * Clipboard.vue
    * Enables clipboard on docs
-   * Requires assets/js/vendor/clipboard.min.js
+   * Requires assets/vue/vendor/clipboard.min.vue
    */
   codeSnippet: () => {
     var btnHtml = '<button type="button" class="btn btn-sm btn-white rounded-pill btn-clipboard">Copy</button>'
