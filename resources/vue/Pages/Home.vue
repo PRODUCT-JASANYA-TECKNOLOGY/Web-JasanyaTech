@@ -574,7 +574,7 @@ import { Head, useForm } from '@inertiajs/vue3'
       </div>
     </section>
 </div>
-  
+
 </template>
 
 <style scoped>

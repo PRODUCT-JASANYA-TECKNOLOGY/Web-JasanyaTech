@@ -1,19 +1,14 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TechnologyController;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Home', [
-        'technology' => 'Inertia + Vue + Laravel',
-    ]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/test', function () {
     return 'Halo cepat!';
 });
-
-Route::get('/technology', [TechnologyController::class, 'index']);
 
 Inertia::share('appName', config('app.name'));

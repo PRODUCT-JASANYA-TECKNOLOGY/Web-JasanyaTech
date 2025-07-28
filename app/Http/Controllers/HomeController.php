@@ -6,7 +6,7 @@ use Inertia\Inertia;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 
-class TechnologyController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
