@@ -1,7 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-import { Head, useForm } from '@inertiajs/vue3'
+import { Head, usePage } from "@inertiajs/vue3";
+import { computed } from "vue";
 
+const page = usePage();
+
+defineProps({
+    technology: Array,
+    category: Array,
+});
+
+const appName = computed(() => page.props.appName);
 </script>
 
 <template>
