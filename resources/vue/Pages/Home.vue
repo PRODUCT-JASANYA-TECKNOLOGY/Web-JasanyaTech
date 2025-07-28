@@ -1,15 +1,34 @@
 <script setup>
 import { Head, usePage } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 import { computed } from "vue";
 
 const page = usePage();
 
+// Props yang datang dari server via Inertia
 defineProps({
     technology: Array,
     category: Array,
     client: Array,
 });
 
+// Form dengan useForm dari Inertia
+const form = useForm({
+    name: "",
+    email: "",
+    need: "",
+    massage: "",
+});
+
+// Error dari form.errors (Inertia otomatis isi jika ada validasi error)
+const errors = computed(() => form.errors || {});
+
+// Fungsi submit form
+function submit() {
+    form.post(route("contact.store"));
+}
+
+// Contoh prop lain dari server
 const appName = computed(() => page.props.appName);
 </script>
 

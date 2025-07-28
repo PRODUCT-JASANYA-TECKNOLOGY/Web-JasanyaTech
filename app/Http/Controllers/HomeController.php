@@ -19,13 +19,13 @@ class HomeController extends Controller
         foreach ($clients as $client) {
             $client->logo_url = asset('storage/' . $client->logo);
         }
-        $contcts = Contact::get();
+        $contats = Contact::get();
             
         return Inertia::render('Home', [
             'technology' => $technologies,
             'category' => $categories,
             'client' => $clients,
-            'contact' => $contcts,
+            'contact' => $contats,
         ]);
     }
 
@@ -34,9 +34,9 @@ class HomeController extends Controller
         Contact::create(
             $request->validate([
                 'name' => ['required', 'max:128'],
-                'email' => ['required', 'max:50', 'email'],
-                'need' => ['required', 'max:255'],
-                'massage' => ['required', 'max:255'],
+                'email' => ['required', 'max:128', 'email'],
+                'need' => ['required', 'max:1000'],
+                'massage' => ['required', 'max:1000'],
             ])
         );
 
