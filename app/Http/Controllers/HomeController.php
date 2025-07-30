@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SettingHelper;
 use App\Models\Category;
 use App\Models\Client;
 use App\Models\Contact;
@@ -13,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        Inertia::share('HERO_TITLE', SettingHelper::getSetting('HERO_TITLE'));
         $technologies = Technology::limit(5)->get();
         $categories = Category::limit(5)->get();
         $clients = Client::select('id', 'name', 'logo', 'desc')->get();

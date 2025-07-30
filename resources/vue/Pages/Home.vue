@@ -30,6 +30,8 @@ function submit() {
 
 // Contoh prop lain dari server
 const appName = computed(() => page.props.appName);
+
+const heroTitle = computed(() => page.props.HERO_TITLE);
 </script>
 
 <template>
@@ -990,7 +992,7 @@ const appName = computed(() => page.props.appName);
                         </div>
                         <div data-cues="slideInDown" data-group="page-title">
                             <h1 class="xl:!text-[3.2rem] !text-[calc(1.445rem_+_2.34vw)] font-semibold !leading-[1.15] !mb-5 md:mx-10 lg:mx-0 xl:mx-0">
-                                We are a digital web agency specializing on <br><span
+                                {{ heroTitle }} <br><span
                                 class="rotator-fade !text-[#605dba] ">web design.,SEO services.,e-commerce.,Google Adwords.</span>
                             </h1>
                             <p class="lead !text-[1.2rem] !leading-[1.6] !mb-8">We are an award winning digital web

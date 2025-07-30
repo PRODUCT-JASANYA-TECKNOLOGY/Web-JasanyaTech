@@ -4,6 +4,7 @@ import {createInertiaApp} from '@inertiajs/vue3'
 import './assets/fonts/unicons/unicons.css'
 import './assets/css/plugins.css'
 import '../css/app.css'
+import './assets/style.css'
 import './assets/css/colors/grape.css'
 import './assets/fonts/space/space.css'
 
