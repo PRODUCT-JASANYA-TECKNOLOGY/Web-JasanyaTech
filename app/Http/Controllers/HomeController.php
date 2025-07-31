@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\SettingHelper;
-use App\Models\Category;
+use Inertia\Inertia;
+use App\Models\Benner;
 use App\Models\Client;
 use App\Models\Contact;
-use App\Models\Portofolio;
 use App\Models\Product;
-use Inertia\Inertia;
+use App\Models\Category;
+use App\Models\Portofolio;
 use App\Models\Technology;
 use Illuminate\Http\Request;
+use App\Helpers\BennerHelper;
+use App\Helpers\SettingHelper;
 
 class HomeController extends Controller
 {
@@ -30,11 +32,21 @@ class HomeController extends Controller
         $heroService = SettingHelper::getSetting('HERO_SERVICE');
         $heroText = SettingHelper::getSetting('HERO_TEXT');
 
-        // Get Setting Helpers Product
+        // Get Setting Helpers Product Section
         $productText = SettingHelper::getSetting('PRODUCT_TEXT');
 
-        // Get Setting Helpers Portofolio
+        // Get Setting Helpers Portofolio Section
         $portofolioText = SettingHelper::getSetting('PORTOFOLIO_TEXT');
+
+        // Get Setting Helpers About Section
+        //Benner
+        $aboutBenner = BennerHelper::getBennerImageUrl('BENNER_ABOUT'); 
+
+        // Text
+        $aboutTitle = SettingHelper::getSetting('ABOUT_TITLE');
+        $aboutParagraf = SettingHelper::getSetting('ABOUT_PARAGRAF');
+        $mision = SettingHelper::getSetting('MISION');
+        $value = SettingHelper::getSetting('VALUE');
 
         return view('homepage', compact('heroTitle', 'heroService', 'heroText', 'productText', 'portofolioText'));
     }
