@@ -1,12 +1,4 @@
 <header class="!absolute w-full">
-    <div class="gradient-5 !text-white font-bold !text-[.75rem] !mb-2 !relative" style="z-index: 1;">
-        <div class="container py-2 !text-center">
-            <p class="!mb-0">✨ Sandbox is part of Envato's Biggest Sale to date, be quick and grab a <a href="#"
-                    class="!text-white hover inline-flex items-center">copy <i
-                        class="uil uil-arrow-right text-[0.8rem] before:content-['\e94c']"></i></a></p>
-        </div>
-        <!-- /.container -->
-    </div>
     <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
         <div class="container xl:!flex-row lg:!flex-row !flex-nowrap items-center">
             <div class="navbar-brand w-full">
