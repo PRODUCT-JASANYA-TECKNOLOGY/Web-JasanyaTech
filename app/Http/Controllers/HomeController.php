@@ -13,6 +13,7 @@ use App\Models\Technology;
 use Illuminate\Http\Request;
 use App\Helpers\BennerHelper;
 use App\Helpers\SettingHelper;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -49,6 +50,10 @@ class HomeController extends Controller
         $data ['aboutParagraf'] = SettingHelper::getSetting('ABOUT_PARAGRAF');
         $data ['mision'] = SettingHelper::getSetting('MISION');
         $data ['value'] = SettingHelper::getSetting('VALUE');
+
+        //Get Setting Helper Service Section
+        $data ['serviceTitle'] = SettingHelper::getSetting('SERVICE_TITLE');
+        $data ['serviceText'] = SettingHelper::getSetting('SERVICE_TEXT');
 
         //get wa marketing
         $data ['waMarketing'] = SettingHelper::getSetting('WA_MARKETING');
