@@ -10,7 +10,8 @@
         content="Tailwind CSS, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
     <meta name="author" content="elemis">
     @vite('resources/css/app.css')
-    <title>Sandbox - Modern & Multipurpose Tailwind CSS Template</title>
+    <title>{{ $title ?? 'JASANYATECH' }}</title>
+    {{-- <link rel="icon" href="images/2.png" type="image/png" sizes="16x16"> --}}
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/fonts/unicons/unicons.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins.css">

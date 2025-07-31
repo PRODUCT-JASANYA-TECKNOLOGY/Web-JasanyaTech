@@ -1,5 +1,4 @@
-use App\Helpers\SettingHelper;
-<x-layout.base>
+<x-layout.base title="Home">
     <div class="grow shrink-0">
         <!-- Header -->
         <x-layout.navbar />

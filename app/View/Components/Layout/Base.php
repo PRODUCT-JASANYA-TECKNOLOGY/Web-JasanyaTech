@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class Base extends Component
 {
+    public $title;
+    
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($title = 'JASANTATECH')
     {
-        //
+        $this->title = $title;
     }
 
     /**
@@ -21,6 +23,8 @@ class Base extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout.base');
+        return view('components.layout.base', [
+            'title' => $this->title,
+        ]);
     }
 }
