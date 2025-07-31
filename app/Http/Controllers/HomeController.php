@@ -28,7 +28,7 @@ class HomeController extends Controller
         $data ['products'] = Product::where('active', true)->get();
         $data ['portofolios'] = Portofolio::where('active', true)->Limit(6)->get();
 
-        $data ['contats'] = Contact::get();
+        $data ['contacts'] = Contact::get();
 
         // Get Setting Helpers Hero Section
         $data ['heroTitle'] = SettingHelper::getSetting('HERO_TITLE');
