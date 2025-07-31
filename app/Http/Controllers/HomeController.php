@@ -50,6 +50,9 @@ class HomeController extends Controller
         $data ['mision'] = SettingHelper::getSetting('MISION');
         $data ['value'] = SettingHelper::getSetting('VALUE');
 
+        //get wa marketing
+        $data ['waMarketing'] = SettingHelper::getSetting('WA_MARKETING');
+
         return view('homepage', $data);
     }
 
