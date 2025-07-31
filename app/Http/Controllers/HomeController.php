@@ -18,37 +18,39 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Get DaTa
-        $technologies = Technology::where('active', true)->limit(5)->get();
-        $categories = Category::where('active', true)->limit(5)->get();
-        $clients = Client::select('id', 'name', 'logo')->where('active', true)->get();
-        $products = Product::where('active', true)->get();
-        $portofolios = Portofolio::where('active', true)->Limit(6)->get();
+        $data = [];
 
-        $contats = Contact::get();
+        // Get DaTa
+        $data ['technologies'] = Technology::where('active', true)->limit(5)->get();
+        $data ['categories'] = Category::where('active', true)->limit(5)->get();
+        $data ['clients'] = Client::select('id', 'name', 'logo')->where('active', true)->get();
+        $data ['products'] = Product::where('active', true)->get();
+        $data ['portofolios'] = Portofolio::where('active', true)->Limit(6)->get();
+
+        $data ['contats'] = Contact::get();
 
         // Get Setting Helpers Hero Section
-        $heroTitle = SettingHelper::getSetting('HERO_TITLE');
-        $heroService = SettingHelper::getSetting('HERO_SERVICE');
-        $heroText = SettingHelper::getSetting('HERO_TEXT');
+        $data ['heroTitle'] = SettingHelper::getSetting('HERO_TITLE');
+        $data ['heroService'] = SettingHelper::getSetting('HERO_SERVICE');
+        $data ['heroText'] = SettingHelper::getSetting('HERO_TEXT');
 
         // Get Setting Helpers Product Section
-        $productText = SettingHelper::getSetting('PRODUCT_TEXT');
+        $data ['productText'] = SettingHelper::getSetting('PRODUCT_TEXT');
 
         // Get Setting Helpers Portofolio Section
-        $portofolioText = SettingHelper::getSetting('PORTOFOLIO_TEXT');
+        $data ['portofolioText'] = SettingHelper::getSetting('PORTOFOLIO_TEXT');
 
         // Get Setting Helpers About Section
         //Benner
-        $aboutBenner = BennerHelper::getBennerImageUrl('BENNER_ABOUT'); 
+        $data ['aboutBenner'] = BennerHelper::getBennerImageUrl('BENNER_ABOUT'); 
 
         // Text
-        $aboutTitle = SettingHelper::getSetting('ABOUT_TITLE');
-        $aboutParagraf = SettingHelper::getSetting('ABOUT_PARAGRAF');
-        $mision = SettingHelper::getSetting('MISION');
-        $value = SettingHelper::getSetting('VALUE');
+        $data ['aboutTitle'] = SettingHelper::getSetting('ABOUT_TITLE');
+        $data ['aboutParagraf'] = SettingHelper::getSetting('ABOUT_PARAGRAF');
+        $data ['mision'] = SettingHelper::getSetting('MISION');
+        $data ['value'] = SettingHelper::getSetting('VALUE');
 
-        return view('homepage', compact('heroTitle', 'heroService', 'heroText', 'productText', 'portofolioText'));
+        return view('homepage', $data);
     }
 
     public function createContact(Request $request)
