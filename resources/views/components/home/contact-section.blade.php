@@ -111,8 +111,8 @@
                             </div>
                             <div>
                                 <h5 class="!mb-1">Address</h5>
-                                <address class=" not-italic !leading-[inherit] !mb-4">Moonshine St. 14/05 Light City,
-                                    London, United Kingdom</address>
+                                <address class=" not-italic !leading-[inherit] !mb-4">
+                                    {{ $adress }}</address>
                             </div>
                         </div>
                         <div class="flex flex-row">
@@ -124,7 +124,7 @@
                             </div>
                             <div>
                                 <h5 class="!mb-1">Phone</h5>
-                                <p>00 (123) 456 78 90 <br>00 (987) 654 32 10</p>
+                                <p>{{ $waMarketing }}</p>
                             </div>
                         </div>
                         <div class="flex flex-row">
@@ -136,9 +136,9 @@
                             </div>
                             <div>
                                 <h5 class="!mb-1">E-mail</h5>
-                                <p class="!mb-0"><a href="mailto:sandbox@email.com"
-                                        class="!text-[#60697b]">sandbox@email.com</a></p>
-                                <p><a href="mailto:help@sandbox.com" class="!text-[#60697b]">help@sandbox.com</a></p>
+                                <p class="!mb-0">
+                                    <a href="mailto:{{ $email }}" class="!text-[#60697b]">{{ $email }}</a>
+                                </p>
                             </div>
                         </div>
                     </div>
