@@ -19,11 +19,11 @@ class HomeController extends Controller
     public function index()
     {
         // Get DaTa
-        $technologies = Technology::where('status_id', 1)->limit(5)->get();
-        $categories = Category::where('status_id', 1)->limit(5)->get();
-        $clients = Client::select('id', 'name', 'logo')->where('status_id', 1)->get();
-        $products = Product::where('status_id', 1)->get();
-        $portofolios = Portofolio::where('status_id', 1)->Limit(6)->get();
+        $technologies = Technology::where('active', true)->limit(5)->get();
+        $categories = Category::where('active', true)->limit(5)->get();
+        $clients = Client::select('id', 'name', 'logo')->where('active', true)->get();
+        $products = Product::where('active', true)->get();
+        $portofolios = Portofolio::where('active', true)->Limit(6)->get();
 
         $contats = Contact::get();
 
