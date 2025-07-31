@@ -22,13 +22,16 @@ class HomeController extends Controller
             $client->logo_url = asset('storage/' . $client->logo);
         }
         $contats = Contact::get();
-            
-        return Inertia::render('Home', [
-            'technology' => $technologies,
-            'category' => $categories,
-            'client' => $clients,
-            'contact' => $contats,
-        ]);
+
+        // return Inertia::render('Home', [
+        //     'technology' => $technologies,
+        //     'category' => $categories,
+        //     'client' => $clients,
+        //     'contact' => $contats,
+        // ]);
+        $heroTitle = SettingHelper::getSetting('HERO_TITLE');
+        $heroService = SettingHelper::getSetting('HERO_SERVICE');
+        return view('homepage', compact('heroTitle', 'heroService'));
     }
 
     public function createContact(Request $request)
