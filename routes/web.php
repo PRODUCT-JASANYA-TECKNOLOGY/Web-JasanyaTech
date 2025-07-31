@@ -6,10 +6,9 @@ use App\Http\Controllers\TechnologyController;
 use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index']);
-Route::post('/contact', [HomeController::class, 'createContact'])->name('contact.store');
+Route::post('/contact', [HomeController::class, 'formContact'])->name('contact.store');
 
 Route::get('/test', function () {
     return 'Halo cepat!';
 });
 
-Inertia::share('appName', config('app.name'));

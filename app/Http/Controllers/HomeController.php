@@ -69,7 +69,7 @@ class HomeController extends Controller
         return view('homepage', $data);
     }
 
-    public function createContact(Request $request)
+    public function formContact(Request $request)
     {
         Contact::create(
             $request->validate([
@@ -80,6 +80,6 @@ class HomeController extends Controller
             ])
         );
 
-        return to_route('contact.index');
+        return redirect('/')->with('success', 'Pengisian Form berhasil!');
     }
 }
