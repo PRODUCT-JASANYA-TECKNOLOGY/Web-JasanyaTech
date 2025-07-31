@@ -6,6 +6,8 @@ use App\Helpers\SettingHelper;
 use App\Models\Category;
 use App\Models\Client;
 use App\Models\Contact;
+use App\Models\Portofolio;
+use App\Models\Product;
 use Inertia\Inertia;
 use App\Models\Technology;
 use Illuminate\Http\Request;
@@ -14,24 +16,27 @@ class HomeController extends Controller
 {
     public function index()
     {
-        Inertia::share('HERO_TITLE', SettingHelper::getSetting('HERO_TITLE'));
-        $technologies = Technology::limit(5)->get();
-        $categories = Category::limit(5)->get();
-        $clients = Client::select('id', 'name', 'logo', 'desc')->get();
-        foreach ($clients as $client) {
-            $client->logo_url = asset('storage/' . $client->logo);
-        }
+        // Get DaTa
+        $technologies = Technology::where('status_id', 1)->limit(5)->get();
+        $categories = Category::where('status_id', 1)->limit(5)->get();
+        $clients = Client::select('id', 'name', 'logo')->where('status_id', 1)->get();
+        $products = Product::where('status_id', 1)->get();
+        $portofolios = Portofolio::where('status_id', 1)->Limit(6)->get();
+
         $contats = Contact::get();
 
-        // return Inertia::render('Home', [
-        //     'technology' => $technologies,
-        //     'category' => $categories,
-        //     'client' => $clients,
-        //     'contact' => $contats,
-        // ]);
+        // Get Setting Helpers Hero Section
         $heroTitle = SettingHelper::getSetting('HERO_TITLE');
         $heroService = SettingHelper::getSetting('HERO_SERVICE');
-        return view('homepage', compact('heroTitle', 'heroService'));
+        $heroText = SettingHelper::getSetting('HERO_TEXT');
+
+        // Get Setting Helpers Product
+        $productText = SettingHelper::getSetting('PRODUCT_TEXT');
+
+        // Get Setting Helpers Portofolio
+        $portofolioText = SettingHelper::getSetting('PORTOFOLIO_TEXT');
+
+        return view('homepage', compact('heroTitle', 'heroService', 'heroText', 'productText', 'portofolioText'));
     }
 
     public function createContact(Request $request)
