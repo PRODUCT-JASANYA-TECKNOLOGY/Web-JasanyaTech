@@ -14,7 +14,7 @@
         <x-home.count-section />
         <x-home.service-section />
         <x-home.working-proses-section />
-        <x-home.contact-section />
+        <x-home.contact-section :adress="$adress" :email="$email" :waMarketing="$waMarketing" />
     </div>
 
     <!-- Progress Wrapper -->
