@@ -59,6 +59,10 @@ class HomeController extends Controller
         $data ['workingProsesTitle'] = SettingHelper::getSetting('WORKING_PROSES_TITLE');
         $data ['workingProsesText'] = SettingHelper::getSetting('WORKING__PROSES_TEXT');
 
+        //Get Setting Helper Contct Section
+        $data ['adress'] = SettingHelper::getSetting('ADRESS');
+        $data ['email'] = SettingHelper::getSetting('EMAIL');
+
         //get wa marketing
         $data ['waMarketing'] = SettingHelper::getSetting('WA_MARKETING');
 
