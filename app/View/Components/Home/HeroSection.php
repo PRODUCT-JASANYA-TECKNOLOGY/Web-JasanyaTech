@@ -13,7 +13,8 @@ class HeroSection extends Component
      */
     public function __construct(
         public string $heroTitle,
-        public string $heroService
+        public string $heroService,
+        public string $heroText
     ) {
         //
     }

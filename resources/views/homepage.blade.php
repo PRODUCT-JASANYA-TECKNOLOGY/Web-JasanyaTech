@@ -4,7 +4,7 @@
         <x-layout.navbar />
 
         {{-- Hero Section --}}
-        <x-home.hero-section :heroTitle="$heroTitle" :heroService="$heroService" />
+        <x-home.hero-section :heroTitle="$heroTitle" :heroService="$heroService" :heroText="$heroText" />
 
         {{-- Sections --}}
         <x-home.product-category-section />
