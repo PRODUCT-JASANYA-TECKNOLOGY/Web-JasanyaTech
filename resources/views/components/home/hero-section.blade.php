@@ -1,5 +1,5 @@
 <section class="wrapper overflow-hidden">
-    <div class="container pt-36 xl:pt-[12.5rem] lg:pt-[12.5rem] md:pt-[12.5rem] !text-center !relative">
+    <div class="container py-36 xl:pt-[12.5rem] lg:pt-[12.5rem] md:pt-[12.5rem] !text-center !relative">
         <div class="absolute" style="top: -15%; left: 50%; transform: translateX(-50%);" data-cue="fadeIn">
             <img class="!rounded-[0.8rem]" src="./assets/img/photos/blurry.png" alt="image">
         </div>
