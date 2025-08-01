@@ -22,49 +22,49 @@ class HomeController extends Controller
         $data = [];
 
         // Get DaTa
-        $data ['technologies'] = Technology::where('active', true)->limit(5)->get();
-        $data ['categories'] = Category::where('active', true)->limit(5)->get();
-        $data ['clients'] = Client::select('id', 'name', 'logo')->where('active', true)->get();
-        $data ['products'] = Product::where('active', true)->get();
-        $data ['portofolios'] = Portofolio::where('active', true)->Limit(6)->get();
+        $data['technologies'] = Technology::where('active', true)->limit(5)->get();
+        $data['categories'] = Category::where('active', true)->limit(5)->get();
+        $data['clients'] = Client::select('id', 'name', 'logo')->where('active', true)->get();
+        $data['products'] = Product::where('active', true)->get();
+        $data['portofolios'] = Portofolio::where('active', true)->Limit(6)->get();
 
-        $data ['contacts'] = Contact::get();
+        $data['contacts'] = Contact::get();
 
         // Get Setting Helpers Hero Section
-        $data ['heroTitle'] = SettingHelper::getSetting('HERO_TITLE');
-        $data ['heroService'] = SettingHelper::getSetting('HERO_SERVICE');
-        $data ['heroText'] = SettingHelper::getSetting('HERO_TEXT');
+        $data['heroTitle'] = SettingHelper::getSetting('HERO_TITLE');
+        $data['heroService'] = SettingHelper::getSetting('HERO_SERVICE');
+        $data['heroText'] = SettingHelper::getSetting('HERO_TEXT');
 
         // Get Setting Helpers Product Section
-        $data ['productText'] = SettingHelper::getSetting('PRODUCT_TEXT');
+        $data['productText'] = SettingHelper::getSetting('PRODUCT_TEXT');
 
         // Get Setting Helpers Portofolio Section
-        $data ['portofolioText'] = SettingHelper::getSetting('PORTOFOLIO_TEXT');
+        $data['portofolioText'] = SettingHelper::getSetting('PORTOFOLIO_TEXT');
 
         // Get Setting Helpers About Section
         //Benner
-        $data ['aboutBenner'] = BennerHelper::getBennerImageUrl('BENNER_ABOUT'); 
+        $data['aboutBenner'] = BennerHelper::getBennerImageUrl('BENNER_ABOUT');
 
         // Text
-        $data ['aboutTitle'] = SettingHelper::getSetting('ABOUT_TITLE');
-        $data ['aboutParagraf'] = SettingHelper::getSetting('ABOUT_PARAGRAF');
-        $data ['mision'] = SettingHelper::getSetting('MISION');
-        $data ['value'] = SettingHelper::getSetting('VALUE');
+        $data['aboutTitle'] = SettingHelper::getSetting('ABOUT_TITLE');
+        $data['aboutParagraf'] = SettingHelper::getSetting('ABOUT_PARAGRAF');
+        $data['mision'] = SettingHelper::getSetting('MISION');
+        $data['value'] = SettingHelper::getSetting('VALUE');
 
         //Get Setting Helper Service Section
-        $data ['serviceTitle'] = SettingHelper::getSetting('SERVICE_TITLE');
-        $data ['serviceText'] = SettingHelper::getSetting('SERVICE_TEXT');
+        $data['serviceTitle'] = SettingHelper::getSetting('SERVICE_TITLE');
+        $data['serviceText'] = SettingHelper::getSetting('SERVICE_TEXT');
 
         //Get Setting Helper Working Proses Section
-        $data ['workingProsesTitle'] = SettingHelper::getSetting('WORKING_PROSES_TITLE');
-        $data ['workingProsesText'] = SettingHelper::getSetting('WORKING__PROSES_TEXT');
+        $data['workingProsesTitle'] = SettingHelper::getSetting('WORKING_PROSES_TITLE');
+        $data['workingProsesText'] = SettingHelper::getSetting('WORKING__PROSES_TEXT');
 
         //Get Setting Helper Contct Section
-        $data ['adress'] = SettingHelper::getSetting('ADRESS');
-        $data ['email'] = SettingHelper::getSetting('EMAIL');
+        $data['adress'] = SettingHelper::getSetting('ADRESS');
+        $data['email'] = SettingHelper::getSetting('EMAIL');
 
         //get wa marketing
-        $data ['waMarketing'] = SettingHelper::getSetting('WA_MARKETING');
+        $data['waMarketing'] = SettingHelper::getSetting('WA_MARKETING');
 
         return view('homepage', $data);
     }

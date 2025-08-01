@@ -63,9 +63,11 @@
                     class="xl:w-5/12 lg:w-5/12 w-full flex-[0_0_auto] !px-[15px] max-w-full !text-[#cacaca] xl:px-0 lg:px-0 !mt-[50px]">
                     <h2
                         class="!text-[calc(1.345rem_+_1.14vw)] font-bold !leading-[1.2] xl:!text-[2.2rem] !mb-3 !text-white">
-                        Our Working Process</h2>
-                    <p class="lead !text-[1.05rem] !leading-[1.55] !font-normal xl:!pr-5 lg:!pr-5">Find out everything
-                        you need to know and more about how we create our business process models.</p>
+                        {{ $workingProsesTitle }}
+                    </h2>
+                    <p class="lead !text-[1.05rem] !leading-[1.55] !font-normal xl:!pr-5 lg:!pr-5">
+                        {{ $workingProsesText }}
+                    </p>
                     <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
                         malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p class="!mb-6">Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta

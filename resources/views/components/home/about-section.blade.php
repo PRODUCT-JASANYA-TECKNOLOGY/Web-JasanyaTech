@@ -13,10 +13,12 @@
                 <!--/column -->
                 <div
                     class="xl:w-6/12 lg:w-6/12 w-full flex-[0_0_auto] xl:!px-[35px] lg:!px-[20px] !px-[15px] max-w-full !mt-[50px]">
-                    <h2 class="!text-[calc(1.305rem_+_0.66vw)] font-bold xl:!text-[1.8rem] !leading-[1.3] !mb-3">Who Are
-                        We?</h2>
-                    <p class="lead !text-[1.05rem] !leading-[1.6] font-medium">We are a digital and branding company
-                        that believes in the power of creative strategy and along with great design.</p>
+                    <h2 class="!text-[calc(1.305rem_+_0.66vw)] font-bold xl:!text-[1.8rem] !leading-[1.3] !mb-3">
+                        {{ $aboutTitle }}
+                    </h2>
+                    <p class="lead !text-[1.05rem] !leading-[1.6] font-medium">
+                        {{ $aboutParagraf }}
+                    </p>
                     <p class="!mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                         mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna,
                         vel scelerisque nisl consectetur et.</p>
@@ -47,7 +49,9 @@
                                 </div>
                                 <div>
                                     <h4 class="!mb-1">Our Mission</h4>
-                                    <p class="!mb-0">Dapibus eu leo quam ornare curabitur blandit tempus.</p>
+                                    <p class="!mb-0">
+                                        {{ $mision }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +79,7 @@
                                 </div>
                                 <div>
                                     <h4 class="!mb-1">Our Values</h4>
-                                    <p class="!mb-0">Aenean lacinia bibendum nulla sed consectetur.</p>
+                                    <p class="!mb-0">{{ $value }}</p>
                                 </div>
                             </div>
                         </div>
