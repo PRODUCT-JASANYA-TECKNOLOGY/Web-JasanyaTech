@@ -7,9 +7,9 @@
         <x-home.hero-section :heroTitle="$heroTitle" :heroService="$heroService" :heroText="$heroText" />
 
         {{-- Sections --}}
-        <x-home.product-category-section />
+        <x-home.product-category-section :productText="$productText" />
         <x-home.icon-client-section />
-        <x-home.portofolio-section />
+        <x-home.portofolio-section :portofolioText="$portofolioText" />
         <x-home.about-section />
         <x-home.count-section />
         <x-home.service-section />

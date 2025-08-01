@@ -6,8 +6,9 @@
                     class="lg:w-9/12 xl:w-8/12 xxl:w-7/12 w-full flex-[0_0_auto] !px-[15px] max-w-full !mx-auto !text-center">
                     <h2 class="!text-[.75rem] uppercase !text-[#aab0bc] !mb-3 !tracking-[0.02rem] !leading-[1.35]">Latest
                         Projects</h2>
-                    <h3 class="!text-[calc(1.305rem_+_0.66vw)] font-bold xl:!text-[1.8rem] !leading-[1.3] !mb-10">Check
-                        out some of our awesome projects with creative ideas and great design.</h3>
+                    <h3 class="!text-[calc(1.305rem_+_0.66vw)] font-bold xl:!text-[1.8rem] !leading-[1.3] !mb-10">
+                        {{ $portofolioText }}
+                    </h3>
                 </div>
                 <!-- /column -->
             </div>

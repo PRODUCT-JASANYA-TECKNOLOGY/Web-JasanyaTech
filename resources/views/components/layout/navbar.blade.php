@@ -3,7 +3,9 @@
         <div class="container xl:!flex-row lg:!flex-row !flex-nowrap items-center">
             <div class="navbar-brand w-full">
                 <a href="./index.html">
-                    <img src="./assets/img/logo-dark.png" srcset="./assets/img/logo-dark@2x.png 2x" alt="image">
+                    <img src="{{ asset('assets/img/Logo_Jasanya.png') }}"
+                        srcset="{{ asset('assets/img/Logo_Jasanya.png') }} 2x" alt="image">
+
                 </a>
             </div>
             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
