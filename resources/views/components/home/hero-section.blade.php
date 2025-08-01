@@ -1,4 +1,4 @@
-<section class="wrapper overflow-hidden">
+<section class="h-screen wrapper overflow-hidden ">
     <div class="container py-36 xl:pt-[12.5rem] lg:pt-[12.5rem] md:pt-[12.5rem] !text-center !relative">
         <div class="absolute" style="top: -15%; left: 50%; transform: translateX(-50%);" data-cue="fadeIn">
             <img class="!rounded-[0.8rem]" src="./assets/img/photos/blurry.png" alt="image">
@@ -61,7 +61,7 @@
                     <span><a
                             class="btn btn-lg btn-grape !text-white !bg-[#605dba] border-[#605dba] hover:text-white hover:bg-[#605dba] hover:!border-[#605dba]   active:text-white active:bg-[#605dba] active:border-[#605dba] disabled:text-white disabled:bg-[#605dba] disabled:border-[#605dba] !rounded-[0.8rem] mx-1">
                             See Projects</a>
-                        </span>
+                    </span>
                     <span><a
                             class="btn btn-lg btn-fuchsia !text-white !bg-[#e668b3] border-[#e668b3] hover:text-white hover:bg-[#e668b3] hover:!border-[#e668b3]   active:text-white active:bg-[#e668b3] active:border-[#e668b3] disabled:text-white disabled:bg-[#e668b3] disabled:border-[#e668b3] !rounded-[0.8rem] mx-1">
                             Contact Us
