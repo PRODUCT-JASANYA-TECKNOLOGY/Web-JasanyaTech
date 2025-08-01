@@ -6,7 +6,7 @@
                 <h2 class="!text-[.75rem] uppercase !text-[#3f78e0] !tracking-[0.02rem] !leading-[1.35] !mb-3">Job
                     Positions</h2>
                 <h3 class="!text-[calc(1.305rem_+_0.66vw)] font-bold xl:!text-[1.8rem] !leading-[1.3] !mb-10 xxl:!px-20">
-                    We’re always searching for amazing people to join our team. Take a look at our current openings.
+                    {{ $productText }}
                 </h3>
             </div>
             <!-- /column -->

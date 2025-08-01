@@ -10,6 +10,24 @@ class EditSetting extends EditRecord
 {
     protected static string $resource = SettingResource::class;
 
+    // Pecah JSON ke field sesuai tipe
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        if (!empty($data['value'])) {
+            $data['value'] = json_decode($data['value'], true);
+        }
+
+        return $data;
+    }
+
+    // Gabungkan kembali ke JSON sebelum simpan
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['value'] = json_encode($data['value']);
+
+        return $data;
+    }
+
     protected function getHeaderActions(): array
     {
         return [
