@@ -12,7 +12,7 @@
     @vite('resources/css/app.css')
     <title>{{ $title ?? 'JASANYATECH' }}</title>
     {{-- <link rel="icon" href="images/2.png" type="image/png" sizes="16x16"> --}}
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/img/icon_web.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/fonts/unicons/unicons.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/style.css">
