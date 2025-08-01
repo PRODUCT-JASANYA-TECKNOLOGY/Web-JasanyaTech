@@ -10,10 +10,10 @@
         <x-home.product-category-section :productText="$productText" />
         <x-home.icon-client-section />
         <x-home.portofolio-section :portofolioText="$portofolioText" />
-        <x-home.about-section />
+        <x-home.about-section :aboutTitle="$aboutTitle" :aboutParagraf="$aboutParagraf" :value="$value" :mision="$mision" />
         <x-home.count-section />
-        <x-home.service-section />
-        <x-home.working-proses-section />
+        <x-home.service-section :serviceTitle="$serviceTitle" :serviceText="$serviceText" />
+        <x-home.working-proses-section :workingProsesTitle="$workingProsesTitle" :workingProsesText="$workingProsesText" />
         <x-home.contact-section :adress="$adress" :email="$email" :waMarketing="$waMarketing" />
     </div>
 
@@ -29,7 +29,6 @@
                     d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
             </svg>
         </div>
-
 
         <!-- Button 2 (WhatsApp) -->
         <a href="https://wa.me/{{ $waMarketing }}" target="_blank">
@@ -49,7 +48,5 @@
                 </svg>
             </div>
         </a>
-
     </div>
-
 </x-layout.base>
