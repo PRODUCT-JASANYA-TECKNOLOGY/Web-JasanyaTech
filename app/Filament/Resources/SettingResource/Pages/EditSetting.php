@@ -20,14 +20,6 @@ class EditSetting extends EditRecord
         return $data;
     }
 
-    // Gabungkan kembali ke JSON sebelum simpan
-    protected function mutateFormDataBeforeSave(array $data): array
-    {
-        $data['value'] = json_encode($data['value']);
-
-        return $data;
-    }
-
     protected function getHeaderActions(): array
     {
         return [
