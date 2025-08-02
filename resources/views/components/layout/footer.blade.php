@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer class="bg-gray-200 opacity-100">
+<footer class="bg-gray-200 opacity-80">
     <div class="container pt-8 xl:pt-10 lg:pt-10 md:pt-10 pb-7">
         <div class="flex flex-wrap mx-[-15px] xl:mx-0 lg:mx-0 !mt-[-30px]">
             <div class="xl:w-4/12 lg:w-4/12 w-full flex-[0_0_auto] !px-[15px] max-w-full xl:px-0 lg:px-0 !mt-[30px]">
@@ -23,8 +23,8 @@
                             </div>
                         </div>
                         <div>
-                            <h5 class="!mb-1">Phone</h5>
-                            <p class="!mb-0">00 (123) 456 78 90 <br>00 (987) 654 32 10</p>
+                            <h5 class="!mb-1">Phone / Wa</h5>
+                            <p class="!mb-0">{{ $waMarketing }}</p>
                         </div>
                     </div>
                     <!--/div -->
