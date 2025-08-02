@@ -16,6 +16,7 @@
         <x-home.service-section :serviceTitle="$serviceTitle" :serviceText="$serviceText" />
         <x-home.working-proses-section :workingProsesTitle="$workingProsesTitle" :workingProsesText="$workingProsesText" />
         <x-home.contact-section :adress="$adress" :email="$email" :waMarketing="$waMarketing" />
+        <x-layout.footer />
     </div>
 
     <!-- Progress Wrapper -->
