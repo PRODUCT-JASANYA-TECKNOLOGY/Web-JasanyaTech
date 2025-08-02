@@ -7,28 +7,10 @@
                         data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
                         <div class="swiper">
                         <div class="swiper-wrapper ticker">
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c1.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c2.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c3.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c4.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c5.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c6.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c7.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c8.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c9.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c10.png"
-                                        alt="image"></div>
-                                <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="../../assets/img/brands/c11.png"
-                                        alt="image"></div>
+                                @foreach ($clients as $client)
+                                        <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="{{ $client->logo }}"
+                                                alt="{{ $client->name }}"></div>
+                                @endforeach
                         </div>
                         <!--/.swiper-wrapper -->
                         </div>
