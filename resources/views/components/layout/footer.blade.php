@@ -43,7 +43,7 @@
                         </div>
                         <div class="!self-start !justify-start">
                             <h5 class="!mb-1">Address</h5>
-                            <address class=" not-italic !leading-[inherit] !mb-4">{{ $adress }}</address>
+                            <address class=" not-italic !leading-[inherit] !mb-4 text-gray-700">{{ $adress }}</address>
                         </div>
                     </div>
                     <!--/div -->
@@ -55,17 +55,11 @@
         <!--/.row -->
         <hr class="!mt-13 xl:!mt-[4.5rem] lg:!mt-[4.5rem] md:!mt-[4.5rem] !mb-7">
         <div class="xl:!flex lg:!flex md:!flex items-center justify-between">
-            <p class="!mb-2 xl:!mb-0 lg:!mb-0">© 2024 Sandbox. All rights reserved.</p>
+            <p class="!mb-2 xl:!mb-0 lg:!mb-0">© 2025 Jasanya Tech. All rights reserved.</p>
             <nav class="nav social social-muted  !mb-0  xl:!text-right lg:!text-right md:!text-right">
                 <a class="m-[0_0_0_.7rem] max-md:m-[0_.7rem_0_0] text-[1rem] transition-all duration-[0.2s] ease-in-out translate-y-0 hover:translate-y-[-0.15rem]"
                     href="#"><i
-                        class="uil uil-twitter before:content-['\ed59'] text-[1rem] !text-[#5daed5]"></i></a>
-                <a class="m-[0_0_0_.7rem] max-md:m-[0_.7rem_0_0] text-[1rem] transition-all duration-[0.2s] ease-in-out translate-y-0 hover:translate-y-[-0.15rem]"
-                    href="#"><i
                         class="uil uil-facebook-f before:content-['\eae2'] text-[1rem] !text-[#4470cf]"></i></a>
-                <a class="m-[0_0_0_.7rem] max-md:m-[0_.7rem_0_0] text-[1rem] transition-all duration-[0.2s] ease-in-out translate-y-0 hover:translate-y-[-0.15rem]"
-                    href="#"><i
-                        class="uil uil-dribbble before:content-['\eaa2'] text-[1rem] !text-[#e94d88]"></i></a>
                 <a class="m-[0_0_0_.7rem] max-md:m-[0_.7rem_0_0] text-[1rem] transition-all duration-[0.2s] ease-in-out translate-y-0 hover:translate-y-[-0.15rem]"
                     href="#"><i
                         class="uil uil-instagram before:content-['\eb9c'] text-[1rem] !text-[#d53581]"></i></a>
