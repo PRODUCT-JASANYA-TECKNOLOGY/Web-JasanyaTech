@@ -8,7 +8,7 @@
 
         {{-- Sections --}}
         <x-home.product-category-section :productText="$productText" />
-        <x-home.icon-client-section />
+        <x-home.icon-client-section :clients="$clients"/>
         <x-home.portofolio-section :portofolioText="$portofolioText" />
         <x-home.about-section :aboutTitle="$aboutTitle" :aboutBenner="$aboutBenner" :aboutParagraf="$aboutParagraf" :value="$value"
             :mision="$mision" />
