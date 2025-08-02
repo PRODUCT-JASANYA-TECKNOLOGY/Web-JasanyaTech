@@ -1,12 +1,12 @@
 <!-- footer -->
-<footer class="bg-gray-200 opacity-80">
+<footer class="bg-gray-200 opacity-70">
     <div class="container pt-8 xl:pt-10 lg:pt-10 md:pt-10 pb-7">
         <div class="flex flex-wrap mx-[-15px] xl:mx-0 lg:mx-0 !mt-[-30px]">
             <div class="xl:w-4/12 lg:w-4/12 w-full flex-[0_0_auto] !px-[15px] max-w-full xl:px-0 lg:px-0 !mt-[30px]">
                 <div class="widget">
                     <img src="{{ asset('assets/img/Logo_Jasanya.png') }}"
                         srcset="{{ asset('assets/img/Logo_Jasanya.png') }} 2x" alt="image">
-                    <p class="lead text-[0.9rem] pt-4 font-medium !leading-[1.65] !mb-0">We are trusted by over 5000+
+                    <p class="lead text-[0.9rem] pt-4 font-medium !leading-[1.65] !mb-0 text-gray-700">We are trusted by over 5000+
                         clients. Join them by using our services and grow your business.</p>
                 </div>
                 <!-- /.widget -->
@@ -24,7 +24,7 @@
                         </div>
                         <div>
                             <h5 class="!mb-1">Phone / Wa</h5>
-                            <p class="!mb-0">{{ $waMarketing }}</p>
+                            <p class="!mb-0 text-gray-700">{{ $waMarketing }}</p>
                         </div>
                     </div>
                     <!--/div -->
