@@ -10,7 +10,8 @@
         <x-home.product-category-section :productText="$productText" />
         <x-home.icon-client-section />
         <x-home.portofolio-section :portofolioText="$portofolioText" />
-        <x-home.about-section :aboutTitle="$aboutTitle" :aboutParagraf="$aboutParagraf" :value="$value" :mision="$mision" />
+        <x-home.about-section :aboutTitle="$aboutTitle" :aboutBenner="$aboutBenner" :aboutParagraf="$aboutParagraf" :value="$value"
+            :mision="$mision" />
         <x-home.count-section />
         <x-home.service-section :serviceTitle="$serviceTitle" :serviceText="$serviceText" />
         <x-home.working-proses-section :workingProsesTitle="$workingProsesTitle" :workingProsesText="$workingProsesText" />

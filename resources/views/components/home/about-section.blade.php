@@ -6,9 +6,8 @@
                     class="md:w-8/12 lg:w-6/12 xl:w-5/12 w-full flex-[0_0_auto] xl:!px-[35px] lg:!px-[20px] !px-[15px] max-w-full !mt-[50px] xl:!order-2 lg:!order-2 !relative">
                     <div class="shape !bg-[#edf2fc] !rounded-[50%] rellax !w-[10rem] !h-[10rem] absolute z-[1]"
                         data-rellax-speed="1" style="top: -2rem; right: -1.9rem;"></div>
-                    <figure class="!rounded-[.4rem] z-[2] relative"><img class="!rounded-[.4rem] "
-                            src="../../assets/img/photos/about7.jpg" srcset="../../assets/img/photos/about7@2x.jpg 2x"
-                            alt="image"></figure>
+                    <figure class="!rounded-[.4rem] z-[2] relative"><img class="!rounded-[.4rem] " src={{ $aboutBenner }}
+                            srcset={{ $aboutBenner }} alt="image"></figure>
                 </div>
                 <!--/column -->
                 <div

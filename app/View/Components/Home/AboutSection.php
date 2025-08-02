@@ -16,6 +16,7 @@ class AboutSection extends Component
         public string $aboutParagraf,
         public string $value,
         public string $mision,
+        public string $aboutBenner,
     ) {
         //
     }
