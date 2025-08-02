@@ -8,7 +8,7 @@
                         <div class="swiper">
                         <div class="swiper-wrapper ticker">
                                 @foreach ($clients as $client)
-                                        <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="{{ $client->logo }}"
+                                        <div class="swiper-slide px-5"><img class="!w-full !h-auto" src="{{ asset('storage/' . $client->logo) }}""
                                                 alt="{{ $client->name }}"></div>
                                 @endforeach
                         </div>
