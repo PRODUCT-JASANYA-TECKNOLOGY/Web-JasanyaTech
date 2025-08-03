@@ -11,4 +11,3 @@ Route::post('/contact', [HomeController::class, 'formContact'])->name('contact.s
 Route::get('/test', function () {
     return 'Halo cepat!';
 });
-

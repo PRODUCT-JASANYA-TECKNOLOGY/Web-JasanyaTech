@@ -17,9 +17,10 @@
                 </div>
                 <div class="offcanvas-body xl:!ml-auto lg:!ml-auto flex  flex-col !h-full">
                     <ul class="navbar-nav">
+                        {{-- Home --}}
                         <li class="nav-item dropdown dropdown-mega">
                             <a class="nav-link dropdown-toggle  font-bold !tracking-[-0.01rem] hover:!text-[#605dba] after:!text-[#605dba]"
-                                href="#" data-bs-toggle="dropdown">Demos</a>
+                                href="#" data-bs-toggle="dropdown">Home</a>
                             <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
                                 <li class="mega-menu-content mega-menu-scroll">
                                     <ul
@@ -340,9 +341,10 @@
                             </ul>
                             <!--/.dropdown-menu -->
                         </li>
+                        {{-- Product --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  font-bold !tracking-[-0.01rem] hover:!text-[#605dba] after:!text-[#605dba]"
-                                href="#" data-bs-toggle="dropdown">Pages</a>
+                                href="#" data-bs-toggle="dropdown">Product</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown dropdown-submenu dropend"><a
                                         class="dropdown-item hover:!text-[#605dba] dropdown-toggle" href="#"
@@ -430,9 +432,10 @@
                                         href="./onepage.html">One Page</a></li>
                             </ul>
                         </li>
+                        {{-- Portofolio --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  font-bold !tracking-[-0.01rem] hover:!text-[#605dba] after:!text-[#605dba]"
-                                href="#" data-bs-toggle="dropdown">Projects</a>
+                                href="#" data-bs-toggle="dropdown">Portofolio</a>
                             <div class="dropdown-menu dropdown-lg">
                                 <div class="dropdown-lg-content">
                                     <div>
@@ -467,9 +470,10 @@
                                 <!-- /auto-column -->
                             </div>
                         </li>
+                        {{-- Teams --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle  font-bold !tracking-[-0.01rem] hover:!text-[#605dba] after:!text-[#605dba]"
-                                href="#" data-bs-toggle="dropdown">Blog</a>
+                                href="#" data-bs-toggle="dropdown">Teams</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="dropdown-item hover:!text-[#605dba]"
                                         href="./blog.html">Blog without Sidebar</a></li>
