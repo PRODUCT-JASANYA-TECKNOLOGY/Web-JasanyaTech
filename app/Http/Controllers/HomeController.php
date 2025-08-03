@@ -69,6 +69,18 @@ class HomeController extends Controller
         return view('homepage', $data);
     }
 
+    public function footer()
+    {
+         //Get Setting Helper Contct Section
+        $adress = SettingHelper::getSetting('ADRESS');
+        $email= SettingHelper::getSetting('EMAIL');
+
+        //get wa marketing
+        $waMarketing = SettingHelper::getSetting('WA_MARKETING');
+
+        return view('footer', compact('adress', 'email', 'waMarketing'));
+    }
+
     public function formContact(Request $request)
     {
         Contact::create(

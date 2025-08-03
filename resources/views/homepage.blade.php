@@ -8,7 +8,7 @@
 
         {{-- Sections --}}
         <x-home.product-category-section :productText="$productText" />
-        <x-home.icon-client-section />
+        <x-home.icon-client-section :clients="$clients"/>
         <x-home.portofolio-section :portofolioText="$portofolioText" />
         <x-home.about-section :aboutTitle="$aboutTitle" :aboutBenner="$aboutBenner" :aboutParagraf="$aboutParagraf" :value="$value"
             :mision="$mision" />
@@ -16,7 +16,7 @@
         <x-home.service-section :serviceTitle="$serviceTitle" :serviceText="$serviceText" />
         <x-home.working-proses-section :workingProsesTitle="$workingProsesTitle" :workingProsesText="$workingProsesText" />
         <x-home.contact-section :adress="$adress" :email="$email" :waMarketing="$waMarketing" />
-        <x-layout.footer />
+        <x-layout.footer :adress="$adress" :email="$email" :waMarketing="$waMarketing" />
     </div>
 
     <!-- Progress Wrapper -->

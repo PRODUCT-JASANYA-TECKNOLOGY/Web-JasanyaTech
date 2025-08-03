@@ -11,10 +11,13 @@ class IconClientSection extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $clients;
+
+    public function __construct($clients)
     {
-        //
+        $this->clients = $clients;
     }
+
 
     /**
      * Get the view / contents that represent the component.
