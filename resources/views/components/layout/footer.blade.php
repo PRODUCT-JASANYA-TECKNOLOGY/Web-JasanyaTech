@@ -4,8 +4,8 @@
           <div class="flex flex-wrap mx-[-15px] xl:mx-0 lg:mx-0 !mt-[-30px]">
               <div class="xl:w-4/12 lg:w-4/12 w-full flex-[0_0_auto] !px-[15px] max-w-full xl:px-0 lg:px-0 !mt-[30px]">
                   <div class="widget">
-                      <img class="!mb-4" src="./assets/img/logo-dark.png" srcset="./assets/img/logo-dark@2x.png 2x"
-                          alt="image">
+                      <img class="!mb-4" src="{{ asset('assets/img/Logo_Jasanya.png') }}"
+                          srcset="{{ asset('assets/img/Logo_Jasanya.png') }}" alt="image">
                       <p class="lead text-[0.9rem] font-medium !leading-[1.65] !mb-0">We are trusted by over 5000+
                           clients. Join them by using our services and grow your business.</p>
                   </div>
